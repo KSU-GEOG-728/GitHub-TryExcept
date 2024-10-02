@@ -32,5 +32,8 @@ if arcpy.CheckProduct("arcinfo") == "Available":
     print(arcpy.GetMessages())
     arcpy.Clip_analysis("temp4", "KansasBoundary", outFcThiessen)
     print(arcpy.GetMessages())
+    delList = arcpy.ListFeatureClasses("temp*)
+    for del in delList:
+        arcpy.Delete_management(del)
 else:
     print("Your ArcGIS licensing level isn't sufficient.")
