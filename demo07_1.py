@@ -23,5 +23,4 @@ if arcpy.CheckProduct("arcinfo") == "Available":
 # If ArcGIS Advanced not available, print statement, and exit Python
 else:
     msg = "ArcGIS for Desktop Advanced license is not available."
-    print(msg)
     sys.exit(msg)    
