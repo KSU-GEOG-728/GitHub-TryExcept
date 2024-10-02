@@ -27,5 +27,8 @@ if arcpy.CheckProduct("arcinfo") == "Available":
     arcpy.Intersect_analysis(["temp1", "temp2"], "temp3")
     arcpy.CreateThiessenPolygons_analysis("temp3", "temp4", "ALL")
     arcpy.Clip_analysis("temp4", "KansasBoundary", outFcThiessen)
+    delList = arcpy.ListFeatureClasses("temp*)
+    for del in delList:
+        arcpy.Delete_management(del)
 else:
     print("Your ArcGIS licensing level isn't sufficient.")
